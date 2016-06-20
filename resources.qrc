@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/statemachine_plain.png</file>
+        <file>images/statemachine_normal.png</file>
+        <file>images/statemachine_mail.png</file>
+        <file>images/statemachine_idle.png</file>
+        <file>images/statemachine_fatal.png</file>
+        <file>images/statemachine_battery.png</file>
+    </qresource>
+</RCC>
