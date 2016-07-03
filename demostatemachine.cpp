@@ -1,5 +1,6 @@
 #include "demostatemachine.h"
 #include <QState>
+#include <QSignalTransition>
 
 DemoStateMachine::DemoStateMachine(QObject *parent) :
     QObject(parent),
@@ -21,7 +22,9 @@ DemoStateMachine::DemoStateMachine(QObject *parent) :
     normalOperationsState->setInitialState(idleState);
 
     //parent state normal operations catch all transitions
-    normalOperationsState->addTransition(this, &DemoStateMachine::eventOnButtonPressEvent, idleState);
+    QSignalTransition * buttonIdleTransition = normalOperationsState->addTransition(this, &DemoStateMachine::eventOnButtonPressEvent, idleState);
+    buttonIdleTransition->setTransitionType(QSignalTransition::InternalTransition);
+
     normalOperationsState->addTransition(this, &DemoStateMachine::eventOnRadioFatalErrorEvent, fatalErrorState);
 
     //idle specific transitions
